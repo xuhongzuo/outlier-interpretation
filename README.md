@@ -8,7 +8,7 @@ Note that this task is also referred to as outlier explanation, outlier aspect m
 
 ### Seven Outlier Interpretation Methods
 
-**This repository contains seven outlier interpretation methods: ATON [1], COIN[2], SiNNE[3], SHAP[], LIME[], Integrated Gradients [1], and Anchor [2].**
+**This repository contains seven outlier interpretation methods: ATON [1], COIN[2], SiNNE[3], SHAP[4], LIME[5], Integrated Gradients [6], and Anchor [7].**
 
 [1] Beyond Outlier Detection: Outlier Interpretation by Attention-Guided Triplet Deviation Network. In WWW. 2021.
 
