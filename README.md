@@ -103,7 +103,7 @@ You may find that each dataset has three annotation files, please refer to the d
 ### Citation
 
 If you find this useful in your research, please consider citing:
-
+```
 @inproceedings{xu2021aton,
 	title={Beyond Outlier Detection: Interpreting Outliers by  Attention-Guided Triplet Deviation Network},
 	author={Xu, Hongzuo and Wang, Yijie and Jian, Songlei and Huang, Zhenyu and Wang, Yongjun and Liu, Ning and Li, Fei},
@@ -111,3 +111,4 @@ If you find this useful in your research, please consider citing:
 	year={2021},
 	publisher={ACM}
 }
+```
