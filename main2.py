@@ -1,3 +1,11 @@
+"""
+this script can perform outlier interpretation method SiNNe and Anchor
+These methods directly use feature subspace as interpretation
+
+@ Author: Hongzuo Xu
+@ email: hongzuo.xu@gmail.com or leogarcia@126.com or xuhongzuo13@nudt.edu.cn
+"""
+
 import os
 import ast
 import time, datetime

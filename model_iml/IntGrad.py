@@ -1,8 +1,6 @@
 import sklearn
-from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from alibi.explainers import IntegratedGradients
-from tqdm import tqdm
 from tensorflow.keras.layers import Dense, Input
 from tensorflow.keras.models import Model
 from tensorflow.keras.utils import to_categorical
@@ -93,12 +91,3 @@ def z_score_normalize(x):
         else:
             x_n[:, i] = array
     return x_n
-
-
-# import pandas as pd
-# path = "../data/00-pima.csv"
-# df = pd.read_csv(path)
-# X = df.values[:, :-1]
-# y = np.array(df.values[:, -1], dtype=int)
-# model = IntGrad()
-# fw = model.fit(X, y)

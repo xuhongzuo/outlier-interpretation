@@ -1,3 +1,11 @@
+"""
+this script can perform outlier interpretation method ATON, COIN, SHAP, LIME, and IntGrad
+These methods use feature weight as interpretation
+
+@ Author: Hongzuo Xu
+@ email: hongzuo.xu@gmail.com or leogarcia@126.com or xuhongzuo13@nudt.edu.cn
+"""
+
 import os
 import ast
 import glob
@@ -21,29 +29,27 @@ from utils.eval_print_utils import print_eval_runs
 from eval.evaluation_od import evaluation_od, evaluation_od_auc
 from config import root, eva_root, get_parser
 import warnings
+
 warnings.filterwarnings("ignore")
 
-
 # ------------------- parser ----------------- #
-# this script can perform outlier interpretation method ATON, COIN, SHAP, and LIME, IntGrad
-algorithm_name = "intgrad"
+algorithm_name = "shap"
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=ast.literal_eval, default=True)
-parser.add_argument('--eval', type=ast.literal_eval, default=True)
-parser.add_argument('--path', type=str, default="data/")
-parser.add_argument('--w2s_ratio', type=str, default='real_len')
+parser.add_argument('--eval', type=ast.literal_eval, default=True, help='Evaluate the interpretation results or not')
+parser.add_argument('--path', type=str, default="data/", help='the input data path, can be a single csv '
+                                                              'or a data folder')
+parser.add_argument('--w2s_ratio', type=str, default='real_len', help='\'real-len\', \'auto\', \'pn\', or a ratio.')
 parser.add_argument('--runs', type=int, default=1)
 parser.add_argument('--record_name', type=str, default='')
 parser = get_parser(algorithm_name, parser)
 args = parser.parse_args()
 
-
 input_root_list = [root + args.path]
 w2s_ratio = args.w2s_ratio
-od_eval_model = ["iforest", "copod", "hbos"]
+od_eval_model = ["iforest", "copod", "hbos"]  # we obtain ground-truth annotations using three outlier detection methods
 runs = args.runs
 record_name = args.record_name
-
 
 # ------------------- record ----------------- #
 if not os.path.exists("record/" + algorithm_name):
@@ -82,6 +88,7 @@ def main(path, run_times):
     X = df.values[:, :-1]
     y = np.array(df.values[:, -1], dtype=int)
 
+    # get the real length of the ground-truth interpretation if the w2s_ratio is true
     real_len_lst = []
     runs_metric_lst = [[] for k in range(len(od_eval_model))]
     if args.eval and args.w2s_ratio == "real_len":
@@ -102,7 +109,7 @@ def main(path, run_times):
         print("runs: %d" % (i + 1))
         time1 = time.time()
 
-        # ------------ run the chosen algorithm to get feature weight ------------- #
+        # ------------ run the chosen algorithm to get interpretation (feature weight) ------------- #
         fea_weight_lst = run_model(algorithm_name, X, y)
 
         # ------------------- transfer feature weight to subspace ----------------- #

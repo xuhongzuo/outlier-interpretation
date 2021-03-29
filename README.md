@@ -58,7 +58,9 @@ please run `main_sinne.py`
 
 - `--runs [int]`         - how many times to run a method on each dataset (we run 10 times and report average performance in our submission)
 
-- `--w2s_ratio [auto/real_len/pn]`  - how to transfer feature weight to feature subspace
+- `--w2s_ratio [auto/real_len/pn]`  - how to transfer feature weight to feature subspace 'real-len', 'auto', or 'pn' 
+denote the same length with the ground-truth, auto generating subspace by the proposed threshold or positive-negative.
+(in our paper, we use 'pn' in COIN', use 'auto' in ATON'. As for methods which output, we directly use 'real-len'.)
 
 - `--eval [True/False]` - evaluate or not, use False for scalability test  
   ... (other hypter-parameters of different methods. You may want to use -h to check the corresponding hypter-parameters after modifing the `algorithm_name`)  

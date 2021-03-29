@@ -3,7 +3,6 @@ import math
 import random
 import sklearn
 import numpy as np
-from model_iml.clf_utils import classifiers
 
 
 class SHAP:
@@ -47,10 +46,13 @@ class SHAP:
         self.ano_idx = np.where(y == 1)[0]
 
         # use Kernel SHAP to explain test set predictions
+        # As instructed by SHAP, Using many background data samples could cause slower run times.
+        # we use shap.kmeans(data, K) to summarize the background as 100 samples.
+
         x_kmean = shap.kmeans(x, self.n_sample)
         explainer = shap.KernelExplainer(clf.predict_proba, x_kmean, link="logit")
-
         anomaly_shap_values = explainer.shap_values(x[self.ano_idx], nsamples="auto")
+
         anomaly_shap_values = anomaly_shap_values[1]
         return anomaly_shap_values
 

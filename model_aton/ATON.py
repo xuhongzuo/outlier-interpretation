@@ -1,3 +1,11 @@
+"""
+This script implements an outlier interpretation method of the following paper:
+"Beyond Outlier Detection: Outlier Interpretation by Attention-Guided Triplet Deviation Network". in WWW'21.
+@ Author: Hongzuo Xu
+@ email: hongzuo.xu@gmail.com or leogarcia@126.com or xuhongzuo13@nudt.edu.cn
+"""
+
+from pyod.models import lscp
 import numpy as np
 import time, math
 import torch
