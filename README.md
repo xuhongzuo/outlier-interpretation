@@ -36,7 +36,7 @@ Note that this task is also referred to as outlier explanation, outlier aspect m
 
 
 ### How to use?
-##### 1. For ATON and competitor COIN, SHAP, and LIME
+##### 1. For ATON and competitor COIN, SHAP, and LIME, and IntGrad
 1. modify variant `algorithm_name` in `main.py` (support algorithm: `aton`, `coin`, `shap`, `lime`  in lowercase)
 2. use `python main.py --path data/ --runs 10 `
 3. the results can be found in `record/[algorithm_name]/` folder  
@@ -46,8 +46,9 @@ Note that this task is also referred to as outlier explanation, outlier aspect m
 2. use `python main.py --path data/ --w2s_ratio auto --runs 10` to run ATON'  
    use `python main.py --path data/ --w2s_ratio pn --runs 10` to run COIN'  
 
-##### 3. For competitor SiNNE
-please run `main_sinne.py` 
+##### 3. For competitor SiNNE and Anchor
+1. modify variant `algorithm_name` in `main2.py` to `sinne` or `anchor`  
+please run `python main2.py --path data/ --runs 10` 
 
 
 
