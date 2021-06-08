@@ -107,7 +107,7 @@ You may find that each dataset has three annotation files, please refer to the d
 
 If you find this useful in your research, please consider citing:
 ```
-@inproceedings{10.1145/3442381.3449868,
+@inproceedings{xu2021aton,
 author = {Xu, Hongzuo and Wang, Yijie and Jian, Songlei and Huang, Zhenyu and Wang, Yongjun and Liu, Ning and Li, Fei},
 title = {Beyond Outlier Detection: Outlier Interpretation by Attention-Guided Triplet Deviation Network},
 year = {2021},
