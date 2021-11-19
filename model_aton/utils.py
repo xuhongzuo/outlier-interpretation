@@ -52,8 +52,6 @@ class EarlyStopping:
         self.delta = delta
         self.path = path
         self.trace_func = trace_func
-        if os.path.exists(self.path):
-            os.mkdir(self.path)
 
     def __call__(self, val_loss, model):
         score = -val_loss

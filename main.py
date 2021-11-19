@@ -22,7 +22,7 @@ from model_aton.ATON_ablation3 import ATONabla3
 from model_iml.SHAP import SHAP
 from model_iml.LIME import LIME
 from model_coin.COIN import COIN
-from model_iml.IntGrad import IntGrad
+# from model_iml.IntGrad import IntGrad
 
 from utils import model_utils
 from utils.eval_print_utils import print_eval_runs
@@ -33,7 +33,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # ------------------- parser ----------------- #
-algorithm_name = "shap"
+algorithm_name = "aton"
 parser = argparse.ArgumentParser()
 parser.add_argument('--gpu', type=ast.literal_eval, default=True)
 parser.add_argument('--eval', type=ast.literal_eval, default=True, help='Evaluate the interpretation results or not')
@@ -187,9 +187,9 @@ def run_model(algorithm, X, y):
         model = LIME(discretize_continuous=args.discretize_continuous, discretizer=args.discretizer)
         fea_weight_lst = model.fit(X, y)
 
-    elif algorithm == "intgrad":
-        model = IntGrad(n_steps=args.n_steps, method=args.method)
-        fea_weight_lst = model.fit(X, y)
+    # elif algorithm == "intgrad":
+    #     model = IntGrad(n_steps=args.n_steps, method=args.method)
+    #     fea_weight_lst = model.fit(X, y)
 
     elif algorithm == "coin":
         sgnf_prior = 1
