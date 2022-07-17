@@ -108,14 +108,14 @@ We appreciate @Zeyi Li (NJPU) for finding this typo.
 
 
 ### References
-- datasets are from ODDS, a outlier detection datasets library (http://odds.cs.stonybrook.edu/), and kaggle platform (https://www.kaggle.com/)
-- the source code of competitor COIN is publicly available in github. 
+- datasets are from ODDS, an outlier detection datasets library (http://odds.cs.stonybrook.edu/), and kaggle platform (https://www.kaggle.com/)
+- the source code of competitor COIN is publicly available in GitHub. 
 
 
 
 ### Citation
 
-If you find this useful in your research, please consider citing:
+😄 If you find this useful in your research, please consider citing:
 ```
 @inproceedings{xu2021aton,
 	title={Beyond Outlier Detection: Interpreting Outliers by  Attention-Guided Triplet Deviation Network},
